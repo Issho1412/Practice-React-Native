@@ -19,13 +19,14 @@ const btsp = StyleSheet.create({
     border: {
         borderColor: colors.colorTextTitle,
         borderWidth: 1,
-        width: dvals.WIDTH * 0.8
+        padding: 5,
+        width: dvals.WIDTH * 0.85
     },
     txtTitle: {
         color: colors.colorTextTitle,
-        fontSize: 40,
+        fontSize: 35,
         fontWeight: 'bold',
-        textAlign: 'center'
+        textAlign: 'center',
     }
 });
 export default TitleComponent;

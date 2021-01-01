@@ -44,9 +44,7 @@ class Main extends Component {
 }
 
 const btsp = StyleSheet.create({
-    bgBlack: {
     
-    }
 })
 
 export default Main;
