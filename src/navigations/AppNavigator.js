@@ -3,6 +3,7 @@ import { createStackNavigator } from 'react-navigation-stack';
 
 import DayOne from '../views/week-one/day-one';
 import DayTwo from '../views/week-one/day-two';
+import DayThree from '../views/week-one/day-three';
 
 import SplashScreen from '../views/splash-screen';
 import Main from '../views/main';
@@ -10,6 +11,7 @@ import Main from '../views/main';
 const WeekOne = createStackNavigator({
     DayOne: { screen:  DayOne },
     DayTwo: { screen: DayTwo }, 
+    DayThree: { screen: DayThree },
 }, {
     headerMode: 'none',
     initialRouteName: 'DayOne',

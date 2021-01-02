@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import { Animated, View, Image, Text, StyleSheet } from 'react-native';
-import BtnRowCpn from '../../components/StopWatchCPN/ButtonComponent';
-import TitleCpn from '../../components/TitleComponent';
+import { Animated, View, StyleSheet } from 'react-native';
 import TwitterLayout from '../../components/TwitterLayout/MainLayout';
 import colors from '../../constants/colors';
 import cvalues from '../../constants/default_values';
@@ -27,7 +25,7 @@ class DayTwo extends Component {
     loadFlashScreen = () => {
         setTimeout( () => {
             this.setState({ load_flash: false })
-        }, 2100);
+        }, 2005);
     }
 
     returnBack = () => {
@@ -51,7 +49,7 @@ class DayTwo extends Component {
                                     source={require('../../assets/logos/logo-twitter.png')} 
                             ></Animated.Image>
                         </View> 
-                    :   <TwitterLayout />
+                    :   <TwitterLayout {...this.props}/>
                 }
             </View>
         );

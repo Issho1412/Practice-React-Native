@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
-import { Image, FlatList, Text, StyleSheet, View } from 'react-native';
+import { Image, Text, StyleSheet, View } from 'react-native';
 import cvalues from '../../constants/default_values';
 import colors from '../../constants/colors';
-import { color } from 'react-native-reanimated';
-import default_values from '../../constants/default_values';
 
 class TwitterPostComponent extends Component {
     constructor(props){
@@ -11,20 +9,37 @@ class TwitterPostComponent extends Component {
     }
     
     render() {
-        const { title, imgCnt, logo, minute, content, textU } = this.props;
+        const { aLikes, aComments, title, imgCnt, logo, minute, content, textU } = this.props;
         return (
-            <View style={[btsp.container ]}>
+            <View style={[ btsp.container ]}>
                 <Image style={btsp.imgItem} source={ logo } />
                 <View style={btsp.content}>
                     <View style={[ btsp.flexRow, { justifyContent: 'space-between'} ]}>
                         <Text style={ btsp.txtLogo }> { title } </Text>
                         <Text style={ btsp.fontSmall }> { minute } </Text>
                     </View>
+                    
                     <View style={[ btsp.flexRow, { flexWrap: 'wrap'} ]}>
                         <Text style={ btsp.fontSmall }> { content } </Text>
                         <Text style={ btsp.txtU }>{ textU }</Text>
                     </View>
+                    
                     <Image style={ btsp.imgCnt } source={ imgCnt }/>
+                    
+                    <View style={[ btsp.flexRow, { justifyContent: 'space-between' } ]}>
+                        <View style={ btsp.flexRow }> 
+                            <Image style={ btsp.icon } source={require('../../assets/icons/icon-back.png')} />
+                            <Text></Text> 
+                        </View>
+                        <View style={ btsp.flexRow }> 
+                            <Image style={ btsp.icon } source={require('../../assets/icons/icon-heart.png')} />
+                            <Text style={ btsp.fontSmall }> { aLikes }</Text> 
+                        </View>
+                        <View style={ btsp.flexRow }> 
+                            <Image style={ btsp.icon } source={require('../../assets/icons/icon-exchange.png')} />
+                            <Text style={ btsp.fontSmall }> { aComments }</Text> 
+                        </View>
+                    </View> 
                 </View>
             </View>
         );
@@ -35,7 +50,7 @@ const btsp = StyleSheet.create({
     container: {
         backgroundColor: colors.colorWhite,
         flexDirection: 'row',
-        padding: 20
+        padding: 10
     },
     content: {
         flex: 1,
@@ -47,6 +62,11 @@ const btsp = StyleSheet.create({
     },
     fontSmall: {
         fontSize: 11.5
+    },
+    icon: {
+        height: 15,
+        width: 15,
+        resizeMode: 'stretch'
     },
     imgItem: {
         borderRadius: 10,

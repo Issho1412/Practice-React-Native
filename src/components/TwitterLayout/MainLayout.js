@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import { View, FlatList, Text, StyleSheet, Image } from 'react-native';
+import { View, FlatList, StyleSheet } from 'react-native';
 import TitleBar from '../TwitterLayout/TitleBarComponent';
 import TwitterPost from '../TwitterLayout/TwitterPostComponent';
 
 const demo_data = [
     {   
-        comment: '140', key: '1', like: '140',
+        comment: '140', key: '1', like: '190',
         imgCnt: require('../../assets/images/John-Kasich.jpg'),
         logo: require('../../assets/logos/cnn-logo.png'), 
         minute: '39 mm',
@@ -32,8 +32,10 @@ export default class MainLayout extends Component {
     render(){
         const renderItem = ({ item }) => (
             <TwitterPost 
+                aComments = {item.comment}
                 title = {item.title}
                 imgCnt = {item.imgCnt}
+                aLikes = {item.like}
                 logo = {item.logo}
                 minute = {item.minute}
                 content = {item.summary}
@@ -43,7 +45,9 @@ export default class MainLayout extends Component {
 
         return(
             <View style={ btsp.container }>
-                <TitleBar></TitleBar>
+                <TitleBar 
+                    goHome = { () => { this.props.navigation.navigate('Main') }}
+                />
                 <FlatList 
                     data = {demo_data}
                     renderItem = {renderItem}

@@ -31,7 +31,7 @@ class Main extends Component {
         
         return (
             <View style={ [dvals.btsp.container, btsp.bgBlack] }>
-                <ImgBgComponent text={ '30 Practices React-Native' }/>
+                <ImgBgComponent text={ 'Practices React-Native' }/>
                 <FlatList 
                     numColumns='3'
                     data={ LST_ITEM }

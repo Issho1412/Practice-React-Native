@@ -7,8 +7,8 @@ const WIDTH = Dimensions.get('window').width;
 const ITEMS_HOME = [
     { key: "1", color: colors.colorRed, link: 'DayOne', title: 'Day 1', src: require('../assets/images/icon-stop-watch.png') },
     { key: "2", color: colors.colorCyBlue, link: 'DayTwo', title: 'Day 2', src: require('../assets/images/icon-tweet.png') },
-    { key: "3", color: colors.colorGreen, link: '', title: 'Day 3', src: require('../assets/images/icon-twitter.png') },
-    { key: "4", color: colors.colorPurple, link: '', title: 'Day 4', src: require('../assets/images/icon-gesture.png') },
+    { key: "3", color: colors.colorPurple, link: 'DayThree', title: 'Day 3', src: require('../assets/images/icon-gesture.png') },
+    { key: "4", color: colors.colorGreen, link: '', title: 'Day 4', src: require('../assets/images/icon-twitter.png') },
     { key: "5", color: colors.colorWhite, link: '', title: 'Day 5', src: require('../assets/images/icon-search.png') },
     { key: "6", color: colors.colorCyBlue, link: '', title: 'Day 6', src: require('../assets/images/icon-sort.png') },
     { key: "7", color: colors.colorOrange, link: '', title: 'Day 7', src: require('../assets/images/icon-tinder.png') },
