@@ -1,20 +1,47 @@
 import React, { Component } from 'react';
-import { Animated, ImageBackground, PanResponder, Text, StyleSheet, View } from 'react-native';
+import { Animated, ImageBackground, PanResponder, StyleSheet } from 'react-native';
 import TextCpn from '../../components/TextComponent';
 import ImgCpn from '../../components/ImgComponent';
 import colors from '../../constants/colors';
-import cvalues from '../../constants/default_values';
 
 class DayThree extends Component {
-    constructor(props) {
+    constructor(props){
         super(props);
         this.state = {
-
+            ball: new Animated.ValueXY(),
+            panMove: ''
         }
     }
 
+    moveBall = (obj) => {
+        var panResponder = PanResponder.create({
+            onMoveShouldSetPanResponder: () => true,
+            onPanResponderGrant: () => {
+              obj.setOffset({
+                x: obj.x._value,
+                y: obj.y._value
+              });
+            },
+            onPanResponderMove: Animated.event([
+              [
+                null,
+                { dx: obj.x, dy: obj.y }
+              ], { useNativeDriver: true }
+            ]),
+            onPanResponderRelease: () => {
+              obj.flattenOffset();
+            }
+        });
+
+        this.setState({ panMove: panResponder });
+    }
+
+    UNSAFE_componentWillMount(){
+        this.moveBall(this.state.ball);
+    }
+
     render() {
-        const { } = this.state;
+        const { ball, panMove } = this.state;
         return (
             <ImageBackground style={btsp.container} source={require('../../assets/images/agrass.png')}>
                 <TextCpn
@@ -32,12 +59,14 @@ class DayThree extends Component {
                     txt={'GESTURE HANDLER'}
                 />
 
-                <Animated.View>
-                    <ImgCpn
-                        dirUrl={require('../../assets/icons/icon-baseball.png')}
-                        height={300}
-                        width={300}
-                    />
+                <Animated.View
+                    style={{ transform: [{ translateX: ball.x }, { translateY: ball.y }] }}
+                    {...panMove.panHandlers}>
+                            <ImgCpn
+                                dirUrl={require('../../assets/icons/icon-baseball.png')}
+                                height={300}
+                                width={300}
+                            />
                 </Animated.View>
             </ImageBackground>
         );

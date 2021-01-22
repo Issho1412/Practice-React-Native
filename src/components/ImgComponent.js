@@ -3,11 +3,11 @@ import { Image, StyleSheet } from 'react-native';
 
 class ImgComponent extends Component {
     render() {
-        const { dirUrl, height, width } = this.props;
+        const { dirUrl, radius, height, width } = this.props;
 
         return (
             <Image source={ dirUrl }
-                style= {{ height: height, width: width }}
+                style= {{ height: height, width: width, borderRadius: radius }}
             />
         );
     }

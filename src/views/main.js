@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import { FlatList, View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { FlatList, View, StyleSheet } from 'react-native';
 import dvals from '../constants/default_values';
-import colors from '../constants/colors';
-
 import ImgBgComponent from '../components/ImgBgComponent';
 import ItemHome from '../components/ItemHomeComponent';
 

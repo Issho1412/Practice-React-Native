@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { View, Image, StyleSheet, TouchableOpacity } from 'react-native';
+import getImage from '../../functions/getImage';
 
 class TitleBarComponent extends Component {
     render() {
@@ -7,14 +8,14 @@ class TitleBarComponent extends Component {
 
         return (
             <View style={[ btsp.container, {paddingVertical: 10} ]}>
-                <Image style={ btsp.imgItem } source={require('../../assets/icons/icon-add.png')} />
+                <Image style={ btsp.imgItem } source={getImage('icon-add')} />
                 <TouchableOpacity onPress={ goHome }>
-                    <Image style={ btsp.imgItem } source={require('../../assets/icons/icon-twitter.png')} />
+                    <Image style={ btsp.imgItem } source={getImage('icon-twitter')} />
                 </TouchableOpacity>
                 
                 <View style={ btsp.container }> 
-                    <Image style={ btsp.imgItem } source={require('../../assets/icons/icon-search.png')} />
-                    <Image style={ btsp.imgItem } source={require('../../assets/icons/icon-edit.png')} />
+                    <Image style={ btsp.imgItem } source={getImage('icon-search')} />
+                    <Image style={ btsp.imgItem } source={getImage('icon-edit')} />
                 </View>
             </View>
         );

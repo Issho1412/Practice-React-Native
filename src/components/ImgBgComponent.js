@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { ImageBackground, StyleSheet, Text } from 'react-native';
 import dvals from '../constants/default_values';
+import getImage from '../functions/getImage';
+
 
 class ImgBgComponent extends Component {
     constructor(props) {
@@ -11,7 +13,7 @@ class ImgBgComponent extends Component {
         const { text } = this.props;
 
         return(
-            <ImageBackground source={require('../assets/images/bg_home.png')} style={ [btsp.img, btsp.container] }>
+            <ImageBackground source={getImage('Home')} style={ [btsp.img, btsp.container] }>
                  <Text style={ btsp.txtBody }> {text} </Text>
             </ImageBackground>
         )

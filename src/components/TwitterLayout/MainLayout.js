@@ -2,12 +2,13 @@ import React, { Component } from 'react';
 import { View, FlatList, StyleSheet } from 'react-native';
 import TitleBar from '../TwitterLayout/TitleBarComponent';
 import TwitterPost from '../TwitterLayout/TwitterPostComponent';
+import getImage from '../../functions/getImage';
 
 const demo_data = [
     {   
         comment: '140', key: '1', like: '190',
-        imgCnt: require('../../assets/images/John-Kasich.jpg'),
-        logo: require('../../assets/logos/cnn-logo.png'), 
+        imgCnt: getImage('Twitter1'),
+        logo: getImage('logo-cnn'), 
         minute: '39 mm',
         summary: 'Arnold @Schwarzenegger is endorsing @JohnKasich', 
         title: 'CNN @CNN',
@@ -15,8 +16,8 @@ const demo_data = [
     },
     {   
         comment: '154', key: '2', like: '291',
-        imgCnt: require('../../assets/images/Cook-Food.jpg'),
-        logo: require('../../assets/logos/new-york-logo.png'), 
+        imgCnt: getImage('Twitter2'),
+        logo: getImage('logo-new-york'), 
         minute: '56 mm',
         summary: 'What to cook as "Downton Abbey" ends', 
         title: 'The New York Times @nytimes ',

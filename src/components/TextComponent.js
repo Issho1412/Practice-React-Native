@@ -3,7 +3,11 @@ import { Text } from 'react-native';
 
 class TextComponent extends Component {
     render() {
-        const { tAlign, tBold, tColor, tSize, txt,  } = this.props;
+        // tAlign, tBold, txt - string
+        // tColor, style - custom SSheet
+        // tSize - number
+        const { tAlign, tBold, tColor, tSize, txt, style } = this.props;
+
         let btsp = {
             color: tColor,
             fontSize: tSize,
@@ -12,7 +16,7 @@ class TextComponent extends Component {
         };
 
         return (
-            <Text style={ btsp }>
+            <Text style={[btsp, style]}>
                 { txt }
             </Text>
         );
