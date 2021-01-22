@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { KeyboardAvoidingView, View, StyleSheet, ImageBackground } from 'react-native';
+import { ActivityIndicator, KeyboardAvoidingView, View, StyleSheet, ImageBackground } from 'react-native';
 import TextCpn from '../../components/TextComponent';
 import InputCpn from '../../components/TextInputComponent';
 
@@ -33,9 +33,7 @@ class DayFour extends Component {
             avenue = 'Vancouver';
         }
         this.setState({ avenue: avenue });
-        this.setState({ weather: '...' });
-        this.setState({ tempature: '...' });
-        
+        this.setState({ loading: true });
         helperAPI.FetchGetAPI(APIs.getLocationID + avenue, {}, '', (res) => {
             if (res.length > 0) {
                 let woeid = res[0].woeid;
@@ -43,9 +41,10 @@ class DayFour extends Component {
                 // Get Weather Data
                 helperAPI.FetchGetAPI(APIs.getWeather + woeid, {}, '', (data) => {
                     const result = data.consolidated_weather[0];
-    
+
                     this.setState({ weather: result.weather_state_name });
                     this.setState({ tempature: result.the_temp });
+                    this.setState({ loading: false });
                 });
             }
             else {
@@ -56,7 +55,7 @@ class DayFour extends Component {
     }
 
     render() {
-        const { avenue, tempature, search, weather } = this.state;
+        const { avenue, loading, tempature, search, weather } = this.state;
 
         return (
             <KeyboardAvoidingView style={[btsp.container]}>
@@ -66,8 +65,15 @@ class DayFour extends Component {
                 >
                     <View style={btsp.view}>
                         <TextCpn txt={avenue} tSize={35} tBold={'700'} />
-                        <TextCpn txt={weather} tSize={18} />
-                        <TextCpn txt={tempature + "°"} tSize={35} />
+
+                        {
+                            !loading ? <View>
+                                            <TextCpn txt={weather} tSize={18}  tAlign={'center'} />
+                                            <TextCpn txt={tempature + "°"} tSize={35} />
+                                        </View> 
+                                    :   <ActivityIndicator animating={loading} color={colors.colorGray} size="large" />
+                        }
+
 
                         <InputCpn
                             backgroundColor={colors.colorWhite}
