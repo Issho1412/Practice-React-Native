@@ -10,7 +10,7 @@ const ITEMS_HOME = [
     { key: "2", color: colors.colorCyBlue, link: 'DayTwo', title: 'Day 2', src: getImage('ITweet') },
     { key: "3", color: colors.colorPurple, link: 'DayThree', title: 'Day 3', src: getImage('IGesture') },
     { key: "4", color: colors.colorRed, link: 'DayFour', title: 'Day 4', src: getImage('IWeather') },
-    { key: "5", color: colors.colorWhite, link: '', title: 'Day 5', src: getImage('ISearch') },
+    { key: "5", color: colors.colorWhite, link: 'DayFive', title: 'Day 5', src: getImage('ISearch') },
     { key: "6", color: colors.colorCyBlue, link: '', title: 'Day 6', src: getImage('ISort') },
     { key: "7", color: colors.colorOrange, link: '', title: 'Day 7', src: getImage('ITinder') },
     { key: "8", color: colors.colorPink, link: '', title: 'Day 8', src: getImage('ISwipeMenu') },

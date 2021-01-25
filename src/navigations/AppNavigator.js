@@ -6,6 +6,8 @@ import DayTwo from '../views/week-one/day-two';
 import DayThree from '../views/week-one/day-three';
 import DayFour from '../views/week-one/day-four';
 
+import DayFive from '../views/week-two/day-five';
+
 import SplashScreen from '../views/splash-screen';
 import Main from '../views/main';
 
@@ -19,10 +21,18 @@ const WeekOne = createStackNavigator({
     initialRouteName: 'DayOne',
 });
 
+const WeekTwo = createStackNavigator({
+    DayFive: { screen: DayFive },
+}, {
+    headerMode: 'none',
+    initialRouteName: 'DayFive',
+});
+
 const AppNavigator = createStackNavigator({
     SplashScreen: { screen: SplashScreen },
     Main: { screen: Main },
-    WeekOne: { screen: WeekOne }
+    WeekOne: { screen: WeekOne },
+    WeekTwo: { screen: WeekTwo }
 }, {
     headerMode: 'none',
     initialRouteName: 'Main',

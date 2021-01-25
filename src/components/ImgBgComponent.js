@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { ImageBackground, StyleSheet, Text } from 'react-native';
 import dvals from '../constants/default_values';
 import getImage from '../functions/getImage';
-
+import PropTypes from 'prop-types';
 
 class ImgBgComponent extends Component {
     constructor(props) {
@@ -20,6 +20,10 @@ class ImgBgComponent extends Component {
     }
 }   
 
+ImgBgComponent.propTypes = {
+    text: PropTypes.string,
+};
+
 const btsp = StyleSheet.create({
     container: {
         alignItems: 'center',
@@ -33,5 +37,6 @@ const btsp = StyleSheet.create({
         fontWeight: '700',
         fontSize: dvals.fontSize
     }
-})
+});
+
 export default ImgBgComponent;

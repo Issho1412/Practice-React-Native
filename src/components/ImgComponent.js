@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Image, StyleSheet } from 'react-native';
+import { Image } from 'react-native';
+import PropTypes from 'prop-types';
 
 class ImgComponent extends Component {
     render() {
@@ -13,10 +14,11 @@ class ImgComponent extends Component {
     }
 }
 
-const btsp = StyleSheet.create({
-    imgConst: {
-        resizeMode: 'stretch'
-    }
-});
+ImgComponent.propTypes = {
+    dirUrl: PropTypes.number.isRequired, 
+    height: PropTypes.number.isRequired,
+    width: PropTypes.number.isRequired
+};
+
 
 export default ImgComponent;

@@ -43,7 +43,7 @@ class DayFour extends Component {
                     const result = data.consolidated_weather[0];
 
                     this.setState({ weather: result.weather_state_name });
-                    this.setState({ tempature: result.the_temp });
+                    this.setState({ tempature: Number.parseFloat(result.the_temp).toFixed(2) });
                     this.setState({ loading: false });
                 });
             }
@@ -64,7 +64,7 @@ class DayFour extends Component {
                     style={btsp.imgContainer}
                 >
                     <View style={btsp.view}>
-                        <TextCpn txt={avenue} tSize={35} tBold={'700'} />
+                        <TextCpn txt={avenue} tSize={35} tBold={'700'}/>
 
                         {
                             !loading ? <View>
@@ -76,6 +76,7 @@ class DayFour extends Component {
 
 
                         <InputCpn
+                           
                             backgroundColor={colors.colorWhite}
                             onChangeText={this.handleChangeText}
                             onSubmit={this.handleUpdateLocation}
